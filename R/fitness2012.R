@@ -3,9 +3,6 @@
 #' @param df data frame that contains columns "region", "unit", "rca" (binary).
 #' @param N number of iterations the algorithm should run over.
 #'
-#' @import vroom
-#' @import tidyverse
-#'
 #' @return dataframe that contains both unit complexity and region fitness.
 #'
 #' @export

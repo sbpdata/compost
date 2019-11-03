@@ -42,7 +42,6 @@
 #' @import purrr
 #' @import tidyr
 #' @import dplyr
-#' @import tibble
 #' 
 #' @export
 
@@ -355,7 +354,9 @@ wrap_long <- function(fun, args = NULL, int_df = NULL, rca_df = NULL, sim_df = N
             mutate(
                 rca_frames = purrr::map(data, help_get_rca)
             ) %>%
+            select(-data) %>%
             unnest(rca_frames)
+
     }
 
     ## DONE Apply helper for get_similarity
@@ -366,6 +367,7 @@ wrap_long <- function(fun, args = NULL, int_df = NULL, rca_df = NULL, sim_df = N
             mutate(
                 sim_frames = purrr::map(data, help_get_similarity)
             ) %>%
+            select(-data) %>%
             unnest(sim_frames)
     }
 
@@ -393,6 +395,7 @@ wrap_long <- function(fun, args = NULL, int_df = NULL, rca_df = NULL, sim_df = N
             mutate(
                 metric = purrr::map2(rca, sim, help_relatedness_metrics)
             ) %>%
+            select(-c(rca, sim)) %>%
             unnest(metric)
 
         ## brug map double input

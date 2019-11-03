@@ -4,9 +4,6 @@
 #' @param N number of iterations the algorithm should run over.
 #' @param delta delta value used in function. default is 0.
 #'
-#' @import vroom
-#' @import tidyverse
-#'
 #' @return dataframe that contains both unit complexity and region fitness.
 #'
 #' @export
